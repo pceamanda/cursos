@@ -1,6 +1,6 @@
 module.exports = function (app) {
     var mongoose = require('mongoose');
-    var usuario = mongoose.model('usuario');
+    var Usuario = mongoose.model('usuario');
     var HomeController = {
         index: function (request, response) {
             response.render('home/index');
@@ -9,8 +9,10 @@ module.exports = function (app) {
             response.render('usuario/cadastroUsuario')
         },
         login: function (request, response) {
+
             var nome = request.body.usuario.nome;
             var senha = request.body.usuario.senha;
+
             var query = { 'nome': nome, 'senha': senha };
             debugger;
             Usuario.findOne(query).select('nome senha')

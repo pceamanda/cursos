@@ -17,17 +17,16 @@ mongoose.connection.on('disconnected', function () {
   console.log('=====Conexão finalizada=====');
 });
 
-var app = express();
 
-// view engine setup
+app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+app.use(cookieParser('cursos'));
+app.use(expressSession());
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-
 load('model')
   .then('controller')
   .then('routes')

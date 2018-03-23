@@ -35,7 +35,7 @@ module.exports = function (app) {
                 }
                 else {
                     var usuario = request.session.usuario,
-                        params = { usuario: usuario, curso: curso };
+                        params = { usuario: usuario, cursos: curso };
                     response.render('curso/listaCurso', params);
                 }
             });

@@ -6,5 +6,4 @@ module.exports = function (app) {
     app.post('/novoUsuario', home.novoUsuario)
     app.post('/login', home.login);
     app.get('/logout', home.logout);
-    app.get('/menu', valid, home.menu);    
 }; 
